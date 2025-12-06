@@ -601,7 +601,7 @@ body[data-theme="light"] .search-btn {
   /* Fill available space and scroll internally */
   flex: 1;
   overflow-y: auto;
-  padding-right: 4px;
+  padding: 6px;
   grid-auto-rows: minmax(100px, 1fr);
   min-height: 0;
   /* Firefox scrollbar support */
@@ -704,7 +704,7 @@ body[data-theme="light"] .stack-block {
   grid-auto-columns: minmax(220px, 1fr);
   gap: 12px;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding: 6px;
   /* Firefox scrollbar support */
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
