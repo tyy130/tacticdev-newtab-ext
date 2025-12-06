@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TacticDev — Browser Console</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="newtab.css" />
+</head>
+
+<body>
+  <div class="frame" aria-label="TacticDev Browser Console">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- icon from extension icons folder -->
+          <img src="icons/icon128.png" alt="tactic dev icon">
+        </div>
+        <div class="brand-text">
+          <h1><span>tactic dev</span></h1>
+          <p>Browser console for shipping tiny, real things.</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
+        </button>
+        <div class="meta">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span><span id="instance-display">New tab</span> • ready to work</span>
+          </div>
+          <div class="pill pill-strong" id="local-datetime">—</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <section class="main">
+      <!-- LEFT: search + links -->
+      <section class="panel panel-left" aria-label="Search & Launchpad">
+        <div class="panel-inner">
+          <div class="nav-block">
+            <div class="panel-header">
+              <h2 class="panel-title">Navigation</h2>
+              <p class="panel-subtitle">Type once, open the minimum, then ship.</p>
+            </div>
+
+            <div class="panel-meta-row">
+              <span>Engine: DuckDuckGo</span>
+              <span class="meta-right">
+                Shortcuts: <code>gh</code> • <code>yt</code> • <code>ddg</code> • <code>td</code> • <code>at</code> •
+                <code>sc</code>
+              </span>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="search-wrap">
+              <form class="search-row" id="search-form">
+                <span class="search-prefix">TACTICDEV //</span>
+                <div class="search-input-wrapper">
+                  <input class="search-input" id="search-input" type="text" autocomplete="off"
+                    placeholder="Search or jump (e.g. 'gh tacticdev', 'yt obs tutorials', 'fitneuron')" />
+                  <ul class="search-suggestions" id="search-suggestions"></ul>
+                </div>
+                <button class="search-btn" type="submit">Go</button>
+              </form>
+              <div class="search-hint">
+                <span>Press <code>/</code> to focus • <code>↑↓</code> to navigate • <code>Esc</code> to clear</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- LINKS -->
+          <div class="link-grid" id="link-grid" aria-label="Quick Links"></div>
+          <div class="link-actions">
+            <button class="link-manage-btn" type="button" id="link-manage-btn">Customize launchpad</button>
+            <button class="link-reset-btn" type="button" id="link-reset-btn">Reset to defaults</button>
+          </div>
+
+          <!-- MODEL / AGENT STACK -->
+          <div class="stack-block" aria-label="Model & Agent Stack">
+            <div class="panel-header">
+              <h2 class="panel-title">Model / Agent Stack</h2>
+              <p class="panel-subtitle">Reference brains, image labs, and toolchains.</p>
+            </div>
+
+            <div class="stack-grid">
+              <article class="stack-card">
+                <header>
+                  <span class="stack-label">Midjourney</span>
+                  <span class="stack-tag">Image</span>
+                </header>
+                <p>V5/V6 prompts, stylized renders, moodboards.</p>
+                <a href="https://www.midjourney.com/imagine" target="_blank" rel="noopener">Launch</a>
+              </article>
+
+              <article class="stack-card">
+                <header>
+                  <span class="stack-label">Runway</span>
+                  <span class="stack-tag">Video</span>
+                </header>
+                <p>Gen-3 motion, storyboard fills, camera passes.</p>
+                <a href="https://runwayml.com/" target="_blank" rel="noopener">Launch</a>
+              </article>
+
+              <article class="stack-card">
+                <header>
+                  <span class="stack-label">Agentic Hub</span>
+                  <span class="stack-tag">Agents</span>
+                </header>
+                <p>Operator, Devin, Replit agents. Compare autonomy tiers.</p>
+                <a href="https://agentops.ai/tools" target="_blank" rel="noopener">Launch</a>
+              </article>
+
+              <article class="stack-card">
+                <header>
+                  <span class="stack-label">Model Garden</span>
+                  <span class="stack-tag">Models</span>
+                </header>
+                <p>Anthropic, OpenAI, Gemini releases + context windows.</p>
+                <a href="https://artificialanalysis.ai/models" target="_blank" rel="noopener">Launch</a>
+              </article>
+
+              <article class="stack-card">
+                <header>
+                  <span class="stack-label">Prompt Library</span>
+                  <span class="stack-tag">System</span>
+                </header>
+                <p>Favorite instructions, agents, workflows. Copy / tweak fast.</p>
+                <a href="https://www.notion.so/tacticdev/Prompt-Library" target="_blank" rel="noopener">Open doc</a>
+              </article>
+
+              <article class="stack-card">
+                <header>
+                  <span class="stack-label">Eval Bench</span>
+                  <span class="stack-tag">QA</span>
+                </header>
+                <p>Light eval scripts, guardrails, hallucination traps.</p>
+                <a href="https://github.com/Tactic-Dev/eval-bench" target="_blank" rel="noopener">View repo</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: focus / notes + scratchpad -->
+      <aside class="panel panel-right" aria-label="Focus & Notes">
+        <div class="panel-inner">
+          <div class="focus-block">
+            <div class="panel-header">
+              <h2 class="panel-title">Operator Focus</h2>
+              <p class="panel-subtitle">Keep this small. Keep this real.</p>
+            </div>
+
+            <p class="side-note">
+              <strong>Rule for this tab:</strong> it’s not a distraction launcher. It’s a
+              “what am I doing in the next 45 minutes?” checkpoint. If the answer isn’t clear,
+              set it <em>before</em> you wander.
+            </p>
+
+            <div class="mini-section focus-section" aria-label="Focus">
+              <div class="focus-summary">
+                <div class="mini-row">
+                  <span class="mini-label">Today’s Rule</span>
+                  <span class="mini-value mini-value-focus" id="focus-text" title="Click to change today’s focus.">
+                    Decide one micro-sprint and ship it.
+                  </span>
+                </div>
+                <div class="mini-row">
+                  <span class="mini-label">Good Tab Outcome</span>
+                  <span class="mini-value">You search once, open at most 2–3 links, then do the thing.</span>
+                </div>
+                <div class="mini-row">
+                  <span class="mini-label">Anti-Pattern</span>
+                  <span class="mini-value">Random surfing with no asset, commit, or client move at the end.</span>
+                </div>
+              </div>
+              <div class="focus-list" id="focus-list" aria-live="polite"></div>
+              <form class="focus-form" id="focus-form">
+                <input type="text" id="focus-input" placeholder="Add a focus task..." autocomplete="off" />
+                <button type="submit">Add</button>
+              </form>
+              <div class="focus-progress">
+                <div class="focus-progress-bar">
+                  <div class="focus-progress-fill" id="focus-progress-fill"></div>
+                </div>
+                <span class="focus-progress-label" id="focus-progress-label">0/0 complete</span>
+              </div>
+            </div>
+
+            <div class="mini-section" aria-label="Shortcuts">
+              <div class="mini-row">
+                <span class="mini-label">Search Shortcuts</span>
+                <span class="mini-value">
+                  <code>gh foo</code> • GitHub &nbsp;|&nbsp;
+                  <code>yt bar</code> • YouTube &nbsp;|&nbsp;
+                  <code>ddg term</code> • DuckDuckGo &nbsp;|&nbsp;
+                  <code>td</code> • tacticdev.com &nbsp;|&nbsp;
+                  <code>at</code> • Airtable &nbsp;|&nbsp;
+                  <code>sc</code> • SoundCloud
+                </span>
+              </div>
+              <div class="mini-row">
+                <span class="mini-label">Keyboard</span>
+                <span class="mini-value">
+                  <code>/</code> Search &nbsp;|&nbsp;
+                  <code>t</code> Theme &nbsp;|&nbsp;
+                  <code>s</code> Scratchpad &nbsp;|&nbsp;
+                  <code>f</code> Focus
+                </span>
+              </div>
+            </div>
+
+            <!-- POMODORO TIMER -->
+            <div class="mini-section" aria-label="Pomodoro Timer">
+              <div class="mini-row">
+                <span class="mini-label">Pomodoro</span>
+                <div class="pomodoro-controls">
+                  <span class="pomodoro-timer" id="pomodoro-timer">25:00</span>
+                  <button class="pomodoro-btn" id="pomodoro-start" type="button">Start</button>
+                  <button class="pomodoro-btn pomodoro-btn-reset" id="pomodoro-reset" type="button">Reset</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCRATCHPAD -->
+          <div class="mini-section mini-section-scratch" aria-label="Scratchpad">
+            <div class="mini-row">
+              <span class="mini-label">Scratchpad</span>
+              <span class="mini-value">Quick notes for this browser, saved locally.</span>
+            </div>
+
+            <div class="scratchpad-controls">
+              <button class="scratch-btn" type="button" id="scratch-save">Save snapshot</button>
+              <button class="scratch-btn" type="button" id="scratch-clear">Clear</button>
+              <label class="scratch-preview-toggle">
+                <input type="checkbox" id="scratch-preview-toggle" />
+                Preview markdown
+              </label>
+            </div>
+
+            <div class="scratchpad" id="scratchpad" contenteditable="true" spellcheck="false"></div>
+            <div class="scratchpad-preview" id="scratchpad-preview" aria-live="polite"></div>
+
+            <div class="scratchpad-history" id="scratchpad-history">
+              <div class="history-header">
+                <span>History</span>
+                <span id="history-clear" class="history-clear">Clear</span>
+              </div>
+              <ul class="history-list" id="history-list">
+                <li class="history-empty">No snapshots yet. Save something worth keeping.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer">
+            <span>tactic dev • Browser Console</span>
+            <div class="footer-right">
+              <button class="footer-btn" id="sync-btn" type="button" title="Cloud Sync">Sync</button>
+              <button class="footer-btn" id="export-btn" type="button" title="Export data">Export</button>
+              <span>Start small. Ship fast. Close the tab.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </div>
+
+  <!-- Link customization modal -->
+  <div class="modal-overlay" id="link-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="link-modal-title">
+      <div class="modal-header">
+        <h3 id="link-modal-title">Customize launchpad</h3>
+        <button class="modal-close" type="button" id="link-modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <p class="modal-subtitle">Swap links as your stack evolves. Reorder with arrows, remove clutter, add the best
+        jump-offs.</p>
+      <ul class="link-manage-list" id="link-manage-list"></ul>
+      <form class="link-form" id="link-form">
+        <input type="hidden" id="link-id" />
+        <div class="form-row">
+          <label>
+            Name
+            <input type="text" id="link-name" required />
+          </label>
+          <label>
+            Tag
+            <input type="text" id="link-tag" placeholder="AI, Ops, etc." />
+          </label>
+        </div>
+        <label>
+          URL
+          <input type="url" id="link-url" required placeholder="https://example.com" />
+        </label>
+        <label>
+          Description
+          <input type="text" id="link-meta" placeholder="One line reminder" />
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="modal-primary">Save link</button>
+          <button type="button" class="modal-secondary" id="link-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sync configuration modal -->
+  <div class="modal-overlay" id="sync-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sync-modal-title">
+      <div class="modal-header">
+        <h3 id="sync-modal-title">Cloud Sync & Identity</h3>
+        <button class="modal-close" type="button" id="sync-modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <p class="modal-subtitle">Sync your dashboard across devices (Thunderbird, Desktop, Mobile).<br>
+        Requires a JSON storage endpoint (e.g. <a href="https://jsonbin.io" target="_blank"
+          style="color:var(--accent)">jsonbin.io</a>).</p>
+
+      <form class="link-form" id="sync-form">
+        <label>
+          Instance Name
+          <input type="text" id="instance-name-input" placeholder="e.g. Desktop, Thunderbird, Laptop" />
+        </label>
+        <label>
+          Endpoint URL
+          <input type="url" id="sync-url" placeholder="https://api.jsonbin.io/v3/b/<BIN_ID>" />
+        </label>
+        <label>
+          API Key / Token
+          <input type="password" id="sync-key" placeholder="Master Key / Access Token" />
+        </label>
+
+        <div class="mini-section" style="margin-top: 10px; border: none;">
+          <div class="mini-row">
+            <span class="mini-label">Last Sync:</span>
+            <span class="mini-value" id="sync-last-time">Never</span>
+          </div>
+          <div class="mini-row">
+            <span class="mini-label">Status:</span>
+            <span class="mini-value" id="sync-status">Not configured</span>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="modal-secondary" id="sync-pull-btn">Pull Cloud</button>
+          <button type="button" class="modal-secondary" id="sync-push-btn">Push Local</button>
+          <button type="submit" class="modal-primary">Save Config</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="newtab.js"></script>
+</body>
+
+</html>
