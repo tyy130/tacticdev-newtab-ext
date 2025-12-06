@@ -166,6 +166,12 @@
       toggleBtn.setAttribute('data-theme', theme);
       toggleBtn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
     }
+    
+    const logoImg = document.querySelector('.brand-logo img');
+    if (logoImg) {
+      // Use the hex logo for light mode, default icon for dark
+      logoImg.src = theme === 'light' ? 'assets/tacticdev-logo.png' : 'icons/icon128.png';
+    }
   }
 
   (function initTheme() {
