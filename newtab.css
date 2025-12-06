@@ -851,9 +851,47 @@ body[data-theme="light"] .focus-list {
 }
 
 .focus-item input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
   width: 14px;
   height: 14px;
-  accent-color: #f97316;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.focus-item input[type="checkbox"]:checked {
+  background-color: #f97316;
+  border-color: #f97316;
+}
+
+.focus-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 3px;
+  height: 7px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+body[data-theme="light"] .focus-item input[type="checkbox"] {
+  background-color: #fff;
+  border-color: rgba(209, 213, 219, 1);
+}
+
+body[data-theme="light"] .focus-item input[type="checkbox"]:checked {
+  background-color: #111827;
+  border-color: #111827;
+}
+
+body[data-theme="light"] .focus-item input[type="checkbox"]:checked::after {
+  border-color: #fff;
 }
 
 .focus-item span {
@@ -944,7 +982,47 @@ body[data-theme="light"] .focus-list {
 }
 
 .scratch-preview-toggle input {
-  accent-color: #f97316;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: relative;
+  vertical-align: text-bottom;
+}
+
+.scratch-preview-toggle input:checked {
+  background-color: #f97316;
+  border-color: #f97316;
+}
+
+.scratch-preview-toggle input:checked::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  width: 3px;
+  height: 7px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+body[data-theme="light"] .scratch-preview-toggle input {
+  background-color: #fff;
+  border-color: rgba(209, 213, 219, 1);
+}
+
+body[data-theme="light"] .scratch-preview-toggle input:checked {
+  background-color: #111827;
+  border-color: #111827;
+}
+
+body[data-theme="light"] .scratch-preview-toggle input:checked::after {
+  border-color: #fff;
 }
 
 .scratchpad-preview {
@@ -1402,6 +1480,7 @@ body[data-theme="light"] .scratchpad-history {
 
 .history-item span.preview {
   flex: 1;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
