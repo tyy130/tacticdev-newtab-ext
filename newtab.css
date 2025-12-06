@@ -349,11 +349,8 @@ body[data-theme="light"] .panel::before {
   gap: 12px;
   flex: 1;
   min-height: 0;
-  overflow-y: auto;
-  padding-right: 6px;
-  /* Firefox scrollbar support */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+  overflow: hidden;
+  padding-right: 2px;
 }
 
 /* Prevent children from squashing */
@@ -601,12 +598,15 @@ body[data-theme="light"] .search-btn {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 10px;
-  /* Allow grid to expand naturally */
-  max-height: none;
-  overflow-y: visible;
-  padding-right: 0;
+  /* Fill available space and scroll internally */
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
   grid-auto-rows: minmax(100px, 1fr);
   min-height: 0;
+  /* Firefox scrollbar support */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
 }
 
 /* Custom scrollbar for link grid */
@@ -739,7 +739,8 @@ body[data-theme="light"] .stack-block {
   font-size: 13px;
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.7);
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
-  min-height: 150px;
+  /* Let content dictate height */
+  min-height: 0;
 }
 
 body[data-theme="light"] .stack-card {
