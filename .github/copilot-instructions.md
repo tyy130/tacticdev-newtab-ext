@@ -4,7 +4,7 @@
 This is a **Chrome Extension (Manifest V3)** that replaces the browser's "New Tab" page with a developer-focused dashboard. It is built with **vanilla HTML, CSS, and JavaScript**—no build tools, frameworks, or bundlers are used.
 
 ## Architecture & Core Components
-- **Entry Point**: `newtab.html` is the main interface loaded by the browser.
+- **Entry Point**: `index.html` (formerly `newtab.html`) is the main interface loaded by the browser and GitHub Pages.
 - **Styling**: `newtab.css` handles all visual presentation.
   - Uses **CSS Variables** (e.g., `--bg`, `--accent`) for theming.
   - Supports **Dark/Light modes** via `body[data-theme="light"]`.
@@ -22,7 +22,7 @@ This is a **Chrome Extension (Manifest V3)** that replaces the browser's "New Ta
   - `tacticdev-scratchpad`: Content of the scratchpad.
 
 ## Development Workflow
-1.  **Edit**: Modify `newtab.html`, `newtab.css`, or `newtab.js` directly.
+1.  **Edit**: Modify `index.html`, `newtab.css`, or `newtab.js` directly.
 2.  **Test**:
     -   Open `chrome://extensions`.
     -   Enable "Developer mode".
