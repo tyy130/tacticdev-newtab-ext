@@ -287,6 +287,13 @@ body[data-theme="light"] .pill-strong {
 @media (max-width: 880px) {
   .main {
     grid-template-columns: minmax(0, 1fr);
+    /* Allow scrolling on small screens instead of hiding overflow */
+    overflow-y: auto;
+  }
+  
+  /* Ensure panels don't get squashed */
+  .panel {
+    min-height: 400px;
   }
 }
 
@@ -573,6 +580,9 @@ body[data-theme="light"] .search-btn {
   padding-right: 4px;
   grid-auto-rows: minmax(115px, 1fr);
   min-height: 0;
+  /* Firefox scrollbar support */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
 }
 
 /* Custom scrollbar for link grid */
@@ -670,6 +680,9 @@ body[data-theme="light"] .stack-block {
   gap: 12px;
   overflow-x: auto;
   padding-bottom: 4px;
+  /* Firefox scrollbar support */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
 }
 
 /* Custom scrollbar for stack grid (horizontal) */
@@ -776,6 +789,27 @@ body[data-theme="light"] .stack-tag {
   border: 1px dashed rgba(55, 65, 81, 0.8);
   border-radius: 10px;
   padding: 8px;
+  /* Firefox scrollbar support */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+/* Custom scrollbar for focus list */
+.focus-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.focus-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.focus-list::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 999px;
+}
+
+.focus-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.6);
 }
 
 body[data-theme="light"] .focus-list {
@@ -1296,6 +1330,9 @@ body[data-theme="light"] .scratchpad {
   padding: 6px 8px;
   font-size: 11px;
   color: var(--text-muted);
+  /* Firefox scrollbar support */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
 }
 
 body[data-theme="light"] .scratchpad-history {
@@ -1451,7 +1488,7 @@ body[data-theme="light"] .footer {
 }
 
 .footer span {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .footer-right {

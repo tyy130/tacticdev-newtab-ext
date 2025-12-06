@@ -1064,32 +1064,6 @@
 
   initPomodoro();
 
-  /* ---------- EXPORT FUNCTIONALITY ---------- */
-
-  function exportData() {
-    const data = {
-      focus: localStorage.getItem(FOCUS_KEY) || '',
-      focusItems: localStorage.getItem(FOCUS_ITEMS_KEY) || '[]',
-      scratchpad: localStorage.getItem(SCRATCH_KEY) || '',
-      scratchpadHistory: localStorage.getItem(SCRATCH_HISTORY_KEY) || '[]',
-      searchHistory: localStorage.getItem(SEARCH_HISTORY_KEY) || '[]',
-      links: localStorage.getItem(LINKS_KEY) || '[]',
-      exportDate: new Date().toISOString()
-    };
-
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `tacticdev-export-${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  exportBtn?.addEventListener('click', exportData);
-
   /* ---------- SYNC & IDENTITY ENGINE ---------- */
   const SYNC_CONFIG_KEY = 'tacticdev-sync-config';
   const INSTANCE_NAME_KEY = 'tacticdev-instance-name';
