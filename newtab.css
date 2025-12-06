@@ -351,6 +351,33 @@ body[data-theme="light"] .panel::before {
   min-height: 0;
   overflow-y: auto;
   padding-right: 6px;
+  /* Firefox scrollbar support */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+/* Prevent children from squashing */
+.panel-inner > * {
+  flex-shrink: 0;
+}
+
+/* Custom scrollbar for panel inner */
+.panel-inner::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.panel-inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel-inner::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 999px;
+}
+
+.panel-inner::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.6);
 }
 
 /* left panel: nav block + link grid */
