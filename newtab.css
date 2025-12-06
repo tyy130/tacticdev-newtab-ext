@@ -601,15 +601,12 @@ body[data-theme="light"] .search-btn {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 10px;
-  /* Limit to ~2.5 rows visible to save space */
-  max-height: 300px;
-  overflow-y: auto;
-  padding-right: 4px;
+  /* Allow grid to expand naturally */
+  max-height: none;
+  overflow-y: visible;
+  padding-right: 0;
   grid-auto-rows: minmax(100px, 1fr);
   min-height: 0;
-  /* Firefox scrollbar support */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
 }
 
 /* Custom scrollbar for link grid */
@@ -692,7 +689,8 @@ body[data-theme="light"] .link-empty {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: 220px;
+  /* Allow stack block to expand naturally */
+  max-height: none;
 }
 
 body[data-theme="light"] .stack-block {
