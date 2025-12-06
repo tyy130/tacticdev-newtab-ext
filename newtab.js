@@ -601,7 +601,7 @@
       scratchEl.textContent = storedScratch;
     } else {
       scratchEl.innerHTML =
-        '<span class="scratchpad-placeholder">Jot down todos, links, or braindumps. This stays on this device.</span>';
+        '<span class="scratchpad-placeholder">Jot down todos...</span>';
     }
 
     scratchEl.addEventListener('focus', () => {
@@ -616,7 +616,7 @@
       localStorage.setItem(SCRATCH_KEY, text);
       if (!text.trim().length) {
         scratchEl.innerHTML =
-          '<span class="scratchpad-placeholder">Jot down todos, links, or braindumps. This stays on this device.</span>';
+          '<span class="scratchpad-placeholder">Jot down todos...</span>';
       }
       updateScratchPreview();
     });
@@ -708,7 +708,7 @@
   if (scratchClear && scratchEl) {
     scratchClear.addEventListener('click', () => {
       scratchEl.innerHTML =
-        '<span class="scratchpad-placeholder">Jot down todos, links, or braindumps. This stays on this device.</span>';
+        '<span class="scratchpad-placeholder">Jot down todos...</span>';
       localStorage.removeItem(SCRATCH_KEY);
       if (scratchPreview) scratchPreview.innerHTML = '';
     });

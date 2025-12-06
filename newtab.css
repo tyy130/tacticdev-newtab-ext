@@ -1320,7 +1320,7 @@ body[data-theme="light"] .scratch-btn {
 /* editor area */
 .scratchpad {
   margin-top: 2px;
-  min-height: 80px;
+  min-height: 60px;
   max-height: 200px;
   padding: 10px 11px;
   border-radius: 12px;
